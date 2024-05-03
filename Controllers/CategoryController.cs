@@ -1,4 +1,5 @@
 using Bulky_Mvc.Data;
+using Bulky_Mvc.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bulky_Mvc.Controllers;
@@ -16,6 +17,29 @@ public class CategoryController : Controller
     {
         var objCategoryList = _db.Categories.ToList();
         return View(objCategoryList);
+    }
+
+    public IActionResult Create()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult Create(Category obj)
+    {
+        // if (obj.Name == obj.DisplayOrder.ToString())
+        // {
+        //     ModelState.AddModelError("name", "The DisplayOrder cannot exactly match the Name.");
+        // }
+
+        if (ModelState.IsValid)
+        {
+            _db.Categories.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
