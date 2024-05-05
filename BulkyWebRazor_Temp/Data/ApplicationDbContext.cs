@@ -1,7 +1,8 @@
-using Bulky_Mvc.Models;
+using BulkyWebRazor_Temp.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Bulky_Mvc.Data;
+namespace BulkyWebRazor_Temp.Data;
+
 public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
