@@ -2,8 +2,9 @@ using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Bulky_Mvc.Controllers;
+namespace Bulky_Mvc.Area.Admin.Controllers;
 
+[Area("Admin")]
 public class CategoryController : Controller
 {
     private readonly IUnitOfWork _UnitOfWork;
