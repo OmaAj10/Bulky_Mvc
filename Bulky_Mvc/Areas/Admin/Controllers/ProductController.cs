@@ -1,6 +1,8 @@
+using System.IO.Compression;
 using Bulky.DataAccess.Repository.IRepository;
 using Bulky.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Bulky_Mvc.Area.Admin.Controllers;
 
@@ -17,11 +19,23 @@ public class ProductController : Controller
     public IActionResult Index()
     {
         var objProdcutList = _UnitOfWork.Product.GetAll().ToList();
+
         return View(objProdcutList);
     }
 
     public IActionResult Create()
     {
+        //Projections in EF Core
+        //Pick only som columns from Category and convert that to new object 
+        IEnumerable<SelectListItem> CategoryList = _UnitOfWork.Category.GetAll().Select(s => new SelectListItem
+        {
+            Text = s.Name,
+            Value = s.Id.ToString()
+        });
+
+        ViewBag.CategoryList = CategoryList;
+        // ViewData["CategoryList"] = CategoryList;
+
         return View();
     }
 
