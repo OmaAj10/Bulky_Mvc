@@ -1,3 +1,4 @@
+using Bulky.DataAccess.Data;
 using Bulky.DataAccess.Repository.IRepository;
 
 namespace Bulky.DataAccess.Repository;
