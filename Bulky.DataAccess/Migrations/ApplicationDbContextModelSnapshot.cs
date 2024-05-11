@@ -63,6 +63,70 @@ namespace Bulky.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Bulky.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            City = "Tech city",
+                            Name = "Tech",
+                            PhoneNumber = "121212121212",
+                            PostalCode = "121212",
+                            State = "TH",
+                            StreetAddress = "124 tech st"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            City = "Code city",
+                            Name = "Tech 2",
+                            PhoneNumber = "121212121212",
+                            PostalCode = "121212",
+                            State = "CD",
+                            StreetAddress = "Code st"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            City = "IT city",
+                            Name = "Tech 3",
+                            PhoneNumber = "121212121212",
+                            PostalCode = "121212",
+                            State = "It",
+                            StreetAddress = "It"
+                        });
+                });
+
             modelBuilder.Entity("Bulky.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -353,12 +417,10 @@ namespace Bulky.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -395,12 +457,10 @@ namespace Bulky.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
