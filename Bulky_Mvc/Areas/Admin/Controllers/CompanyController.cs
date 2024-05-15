@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Bulky_Mvc.Area.Admin.Controllers;
 
 [Area("Admin")]
-// [Authorize(Roles = StaticDetails.Role_Admin)]
+[Authorize(Roles = StaticDetails.Role_Admin)]
 public class CompanyController : Controller
 {
     private readonly IUnitOfWork _UnitOfWork;
