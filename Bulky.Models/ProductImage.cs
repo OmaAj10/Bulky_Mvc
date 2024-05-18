@@ -5,7 +5,7 @@ namespace Bulky.Models;
 
 public class ProductImage
 {
-    public int id { get; set; }
+    public int Id { get; set; }
     public string ImageUrl { get; set; }
     public int ProductId { get; set; }
     [ForeignKey("ProductId")]
